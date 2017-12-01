@@ -5,7 +5,7 @@
 
     <label>Amount:</label><br>
     <input class="form-control" type="number" name='amount' placeholder="Le montant de ta transaction..."
-           required="true" min="0" <?php if (isAdmin()) {
+           required="true" min="0" <?php if (checkPermissions('Banker')) {
         echo '><br><br>';
     } else { ?>max=<?php echo userBalance($bdd, $_SESSION['id']) ?>><?php } ?>
 
@@ -22,7 +22,7 @@
            required="true"><br><br>
 
     <label>From</label><br>
-    <?php if (isAdmin()) { ?>
+    <?php if (checkPermissions('Banker')) { ?>
         <select class="form-control" name='id_sender'>
             <?php
             foreach (getAllUsers($bdd) as $aU) {
