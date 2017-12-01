@@ -10,7 +10,7 @@
 foreach (getTickets($bdd) as $tk) {
     echo '<hr><h2>#' . $tk['id'] . ' ' . $tk['title'];
     if (isset($_SESSION['login'])) {
-        if ($tk['login'] == $_SESSION['login'] | isAdmin()) {
+        if ($tk['login'] == $_SESSION['login'] | checkPermissions('Banker')) {
             echo' <a href="' . $project_path . 'index.php?ticket=edit&id=' . $tk['id'] . '">✎</a>
           <a href="' . $project_path . 'index.php?ticket=deleteAction&id=' . $tk['id'] . '">×</a>';
         }
