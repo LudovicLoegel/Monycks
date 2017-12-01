@@ -1,5 +1,5 @@
 <?php
-include('views/footers/default.php');
+include('views/headers/default.php');
 require('models/users.php');
 require('models/transactions.php');
 

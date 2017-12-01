@@ -40,8 +40,10 @@ function checkPermissions($role) {
     if (isset($_SESSION['roles'])) {
         $array = $_SESSION['roles'];
         $roles = explode(",", $role);
-        if (in_array($roles, $array)) {
-            return true;
+        foreach ($roles as $rl){
+            if (in_array($rl, $array)) {
+                return true;
+            }
         }
     }
     return false;
